@@ -159,7 +159,12 @@ export default function PartiesTable({ parties }: PartiesTableProps) {
         case "name":
           return (
             <User
-              avatarProps={{ radius: "sm", src: partyInfo.logoUrl }}
+              avatarProps={{
+                radius: "sm",
+                className: "bg-white",
+                src: partyInfo.logoUrl,
+                imgProps: { className: "bg-contain" },
+              }}
               // description={partyInfo.email}
               name={cellValue}
             >
@@ -181,7 +186,7 @@ export default function PartiesTable({ parties }: PartiesTableProps) {
           return (
             <Link
               isExternal
-              href={partyInfo.websiteIconUrl}
+              href={partyInfo.websiteUrl}
               showAnchorIcon
               className="text-nowrap"
             >

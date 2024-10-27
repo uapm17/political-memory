@@ -25,7 +25,134 @@ const slugaNaroduPary: Party = {
     "https://upload.wikimedia.org/wikipedia/commons/b/b0/Servant_of_the_People_Party_Logo.svg",
 };
 
-export const partiesList: Party[] = [slugaNaroduPary];
+const yevropeiskaSolidarnist: Party = {
+  id: "732764f3-72e8-4899-b67e-26670e4879e6",
+  name: "Європейська Солідарність",
+  status: PartyStatus.active,
+  description: "Українська правоцентристська консервативна політична партія",
+  start: new Date(2000, 4, 5),
+  links: [
+    {
+      name: "Вікіпедія",
+      url: "https://uk.wikipedia.org/wiki/%D0%84%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D0%A1%D0%BE%D0%BB%D1%96%D0%B4%D0%B0%D1%80%D0%BD%D1%96%D1%81%D1%82%D1%8C",
+      icon: "wikipedia",
+    },
+  ],
+  website: {
+    url: "https://eurosolidarity.org/",
+    name: "Вебсайт партії",
+    icon: "website",
+  },
+  end: null,
+  actions: [],
+  logoUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/f/f7/Small_logo_European_Solidarity.png",
+};
+
+const batkivshchuna: Party = {
+  id: "4b5a2cf5-8228-4c2d-a880-db3da8923e93",
+  name: "ВО «Батьківщина»",
+  status: PartyStatus.active,
+  description: "Українська політична партія центристського[8][9] спрямування",
+  start: new Date(1999, 6, 9),
+  links: [
+    {
+      name: "Вікіпедія",
+      url: "https://uk.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B5_%D0%BE%D0%B1%27%D1%94%D0%B4%D0%BD%D0%B0%D0%BD%D0%BD%D1%8F_%C2%AB%D0%91%D0%B0%D1%82%D1%8C%D0%BA%D1%96%D0%B2%D1%89%D0%B8%D0%BD%D0%B0%C2%BB",
+      icon: "wikipedia",
+    },
+  ],
+  website: {
+    url: "http://ba.org.ua/",
+    name: "Вебсайт партії",
+    icon: "website",
+  },
+  end: null,
+  actions: [],
+  logoUrl:
+    "https://scontent.fiev26-1.fna.fbcdn.net/v/t39.30808-6/271741268_479614960195937_3352190801041376306_n.png?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=R8QoY5teFfAQ7kNvgE8jp4c&_nc_zt=23&_nc_ht=scontent.fiev26-1.fna&_nc_gid=A2mIyf-MpaVYbgyXjbsMWU5&oh=00_AYC9gLiI60bvgR49wJZ5m98YbbB9rYYVwCJXQYUgHYIg_w&oe=67244823",
+};
+
+const golos: Party = {
+  id: "2edef915-dfe5-4bfd-9681-4d35a980038d",
+  name: "Голос",
+  status: PartyStatus.active,
+  description: "Українська ліберальна політична партія",
+  start: new Date(2015, 1, 10),
+  links: [
+    {
+      name: "Вікіпедія",
+      url: "https://uk.wikipedia.org/wiki/%D0%93%D0%BE%D0%BB%D0%BE%D1%81_(%D0%BF%D0%B0%D1%80%D1%82%D1%96%D1%8F)",
+      icon: "wikipedia",
+    },
+  ],
+  website: {
+    url: "https://goloszmin.org/",
+    name: "Вебсайт партії",
+    icon: "website",
+  },
+  end: null,
+  actions: [],
+  logoUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Holos_logo_2020.svg/2880px-Holos_logo_2020.svg.png",
+};
+
+const udar: Party = {
+  id: "9fcc2aac-4d73-4b2f-8e53-a9ea1160b382",
+  name: "УДАР Віталія Кличка",
+  status: PartyStatus.active,
+  description: "всеукраїнська політична партія",
+  start: new Date(2005, 2, 14),
+  links: [
+    {
+      name: "Вікіпедія",
+      url: "https://uk.wikipedia.org/wiki/%D0%A3%D0%94%D0%90%D0%A0_%D0%92%D1%96%D1%82%D0%B0%D0%BB%D1%96%D1%8F_%D0%9A%D0%BB%D0%B8%D1%87%D0%BA%D0%B0",
+      icon: "wikipedia",
+    },
+  ],
+  website: {
+    url: "https://udar.party/",
+    name: "Вебсайт партії",
+    icon: "website",
+  },
+  end: null,
+  actions: [],
+  logoUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Logo_of_the_Ukrainian_Democratic_Alliance_for_Reform_%282020%29.svg/2880px-Logo_of_the_Ukrainian_Democratic_Alliance_for_Reform_%282020%29.svg.png",
+};
+
+const radukalnaLiashka: Party = {
+  id: "1025fe60-26ce-49c9-ba4c-e6d4ab638fc2",
+  name: "Радикальна партія Олега Ляшка",
+  status: PartyStatus.active,
+  description: "всеукраїнська політична партія",
+  start: new Date(2010, 8, 28),
+  links: [
+    {
+      name: "Вікіпедія",
+      url: "https://uk.wikipedia.org/wiki/%D0%A0%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0_%D0%BF%D0%B0%D1%80%D1%82%D1%96%D1%8F_%D0%9E%D0%BB%D0%B5%D0%B3%D0%B0_%D0%9B%D1%8F%D1%88%D0%BA%D0%B0",
+      icon: "wikipedia",
+    },
+  ],
+  website: {
+    url: "http://liashko.ua/",
+    name: "Вебсайт партії",
+    icon: "website",
+  },
+  end: null,
+  actions: [],
+  logoUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/%D0%A0%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BF%D0%B0%D1%80%D1%82%D0%B8%D1%8F_%D0%9B%D1%8F%D1%88%D0%BA%D0%BE_%D8%AD%D8%B2%D8%A8_%D9%85%D8%AA%D8%B7%D8%B1%D9%81_Lyashko.svg/2880px-%D0%A0%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BF%D0%B0%D1%80%D1%82%D0%B8%D1%8F_%D0%9B%D1%8F%D1%88%D0%BA%D0%BE_%D8%AD%D8%B2%D8%A8_%D9%85%D8%AA%D8%B7%D8%B1%D9%81_Lyashko.svg.png",
+};
+
+export const partiesList: Party[] = [
+  slugaNaroduPary,
+  yevropeiskaSolidarnist,
+  batkivshchuna,
+  golos,
+  udar,
+  radukalnaLiashka,
+];
 
 export const partiesMap = new Map(
   partiesList.map((party) => [party.id, party])
