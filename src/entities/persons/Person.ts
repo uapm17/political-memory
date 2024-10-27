@@ -1,10 +1,5 @@
+import { Action } from "../actions/Action";
 import { Institution } from "../institutions/Institution";
-
-type Action = {
-  date: Date;
-  description: string;
-  companions: string[];
-};
 
 enum Degree {
   master = "master",
@@ -42,14 +37,6 @@ type PartyMembershipRecord = {
   end: Date;
   position: string;
   partyId: string;
-  actions: Action[];
-};
-
-export type Party = {
-  name: string;
-  description: string;
-  start: Date;
-  end: Date | null;
   actions: Action[];
 };
 
@@ -103,12 +90,20 @@ type FamilyMember = {
   description: string;
 };
 
+type Website = {
+  url: string;
+  icon: string | null;
+  name: string;
+};
+
 export type Person = {
   id: string;
   firstName: string;
   lastName: string;
   birthDate: Date;
-  photoUrl: string | null;
+  email: string | null;
+  website: Website | null;
+  photoUrl: string;
   education: EducationRecord[];
   jobHistory: Job[];
   declarations: Declaration[];

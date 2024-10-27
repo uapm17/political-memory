@@ -26,5 +26,7 @@ export const persons: Person[] = [
     investigations: [],
     family: [],
     criminalRecords: [],
+    website: null,
+    email: null,
   },
 ];
