@@ -1,4 +1,4 @@
-import { TFunction } from 'i18next';
+// import { TFunction } from 'i18next';
 
 export const countriesList = [
     'ABW',
@@ -250,11 +250,11 @@ export const countriesList = [
     'ZWE',
 ];
 
-export const getCountiesOptions = (t: TFunction) => {
-    return countriesList
-        .map((countryCode) => ({
-            value: countryCode,
-            label: t(`country.${countryCode}`),
-        }))
-        .sort((a, b) => (a.label > b.label ? 1 : -1));
-};
+// export const getCountiesOptions = (t: TFunction) => {
+//     return countriesList
+//         .map((countryCode) => ({
+//             value: countryCode,
+//             label: t(`country.${countryCode}`),
+//         }))
+//         .sort((a, b) => (a.label > b.label ? 1 : -1));
+// };
