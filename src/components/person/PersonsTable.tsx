@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import {
   Table,
@@ -43,15 +43,9 @@ const columns = [
   { name: "POSITION", uid: "position" },
   { name: "PARTY", uid: "party" },
   { name: "EMAIL", uid: "email" },
-//   { name: "ACTIONS", uid: "actions" },
+  //   { name: "ACTIONS", uid: "actions" },
 ];
 const INITIAL_VISIBLE_COLUMNS = ["name", "age", "position", "party"];
-
-// type User = (typeof users)[0];
-
-interface PersonsTableProps {
-  persons: Person[];
-}
 
 type PersonInfo = {
   id: string;
@@ -63,7 +57,7 @@ type PersonInfo = {
   email: string | null;
 };
 
-const formatPerson = (person: Person): PersonInfo => {
+const formatPerson = (person: Person, institutionId: string): PersonInfo => {
   const {
     id,
     lastName,
@@ -76,7 +70,10 @@ const formatPerson = (person: Person): PersonInfo => {
   } = person;
   const name = `${lastName} ${firstName}`;
   const age = differenceInYears(new Date(), birthDate);
-  const currentJob = jobHistory.find((record) => !record.end)?.position || "-";
+  const currentJob =
+    jobHistory.find(
+      (record) => !record.end && record.institutionId === institutionId
+    )?.position || "-";
   const currentPartyId = partyMembership.find((record) => !record.end)?.partyId;
   const party = currentPartyId && partiesMap.get(currentPartyId)?.name;
 
@@ -91,7 +88,15 @@ const formatPerson = (person: Person): PersonInfo => {
   };
 };
 
-export default function PersonsTable({ persons }: PersonsTableProps) {
+interface PersonsTableProps {
+  persons: Person[];
+  institutionId: string;
+}
+
+export default function PersonsTable({
+  persons,
+  institutionId,
+}: PersonsTableProps) {
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
     new Set([])
@@ -125,7 +130,9 @@ export default function PersonsTable({ persons }: PersonsTableProps) {
   //     {name: "Vacation", uid: "vacation"},
   //   ];
   const statusOptions: Array<{ name: string; uid: string }> = [];
-  const formattedPersons = persons.map(formatPerson);
+  const formattedPersons = persons.map((person) =>
+    formatPerson(person, institutionId)
+  );
 
   const filteredItems = React.useMemo(() => {
     let filteredPersons = [...formattedPersons];
@@ -402,8 +409,8 @@ export default function PersonsTable({ persons }: PersonsTableProps) {
       classNames={{
         wrapper: "max-h-[382px]",
       }}
-    //   selectedKeys={selectedKeys}
-    //   selectionMode="multiple"
+      //   selectedKeys={selectedKeys}
+      //   selectionMode="multiple"
       sortDescriptor={sortDescriptor}
       topContent={topContent}
       topContentPlacement="outside"

@@ -2,7 +2,7 @@ import { ExternalLink } from "@/types";
 import { Action } from "../actions/Action";
 import { Institution } from "../institutions/Institution";
 
-enum Degree {
+export enum Degree {
   master = "master",
   bachelor = "bachelor",
 }
@@ -10,7 +10,7 @@ enum Degree {
 type EducationRecord = {
   start: Date;
   end: Date;
-  degree: Degree;
+  degree: Degree | null;
   institutionId: string; // Institution
   description: string;
   actions: Action[];
@@ -20,7 +20,7 @@ type Job = {
   start: Date;
   end: Date | null;
   position: string;
-  institutionId: string; // Institution
+  institutionId: string | null; // Institution
   description: string;
   actions: Action[];
 };

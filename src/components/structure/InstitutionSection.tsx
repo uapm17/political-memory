@@ -17,7 +17,7 @@ export default function InstitutionSection({
       <header className={subtitle({ class: "mb-2" })}>
         {institution.name}
       </header>
-      <PersonsTable persons={persons} />
+      <PersonsTable persons={persons} institutionId={institution.id} />
     </section>
   );
 }

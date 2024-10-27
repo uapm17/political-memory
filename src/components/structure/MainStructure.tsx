@@ -4,8 +4,11 @@ import { presidentOffice } from "@/src/entities/institutions/institutions";
 
 export default function MainStructure() {
   const presidentOfficePersons = persons.filter((person) => {
-    const currentJob = person.jobHistory.find((record) => !record.end);
-    return currentJob?.institutionId === "613b4738-1ac1-4ced-b745-229b6516f2fc";
+    const currentJobs = person.jobHistory.filter((record) => !record.end);
+    return currentJobs.some(
+      (currentJob) =>
+        currentJob?.institutionId === "613b4738-1ac1-4ced-b745-229b6516f2fc"
+    );
   });
 
   return (
