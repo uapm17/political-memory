@@ -1,3 +1,4 @@
+import { ExternalLink } from "@/types";
 import { Action } from "../actions/Action";
 import { Institution } from "../institutions/Institution";
 
@@ -90,19 +91,13 @@ type FamilyMember = {
   description: string;
 };
 
-type Website = {
-  url: string;
-  icon: string | null;
-  name: string;
-};
-
 export type Person = {
   id: string;
   firstName: string;
   lastName: string;
   birthDate: Date;
   email: string | null;
-  website: Website | null;
+  website: ExternalLink | null;
   photoUrl: string;
   education: EducationRecord[];
   jobHistory: Job[];

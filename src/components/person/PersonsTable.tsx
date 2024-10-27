@@ -31,11 +31,11 @@ import { Person } from "@/src/entities/persons/Person";
 import { differenceInYears } from "date-fns";
 import { partiesMap } from "@/src/entities/parties/parties";
 
-const statusColorMap: Record<string, ChipProps["color"]> = {
-  active: "success",
-  paused: "danger",
-  vacation: "warning",
-};
+// const statusColorMap: Record<string, ChipProps["color"]> = {
+//   active: "success",
+//   paused: "danger",
+//   vacation: "warning",
+// };
 
 const columns = [
   { name: "NAME", uid: "name", sortable: true },
@@ -43,7 +43,7 @@ const columns = [
   { name: "POSITION", uid: "position" },
   { name: "PARTY", uid: "party" },
   { name: "EMAIL", uid: "email" },
-  { name: "ACTIONS", uid: "actions" },
+//   { name: "ACTIONS", uid: "actions" },
 ];
 const INITIAL_VISIBLE_COLUMNS = ["name", "age", "position", "party"];
 
@@ -273,7 +273,7 @@ export default function PersonsTable({ persons }: PersonsTableProps) {
             onValueChange={onSearchChange}
           />
           <div className="flex gap-3">
-            <Dropdown>
+            {/* <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
                 <Button
                   endContent={<ChevronDownIcon className="text-small" />}
@@ -296,7 +296,7 @@ export default function PersonsTable({ persons }: PersonsTableProps) {
                   </DropdownItem>
                 ))}
               </DropdownMenu>
-            </Dropdown>
+            </Dropdown> */}
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
                 <Button
@@ -321,9 +321,9 @@ export default function PersonsTable({ persons }: PersonsTableProps) {
                 ))}
               </DropdownMenu>
             </Dropdown>
-            <Button color="primary" endContent={<PlusIcon />}>
+            {/* <Button color="primary" endContent={<PlusIcon />}>
               Add New
-            </Button>
+            </Button> */}
           </div>
         </div>
         <div className="flex justify-between items-center">
@@ -356,12 +356,12 @@ export default function PersonsTable({ persons }: PersonsTableProps) {
 
   const bottomContent = React.useMemo(() => {
     return (
-      <div className="py-2 px-2 flex justify-between items-center">
-        <span className="w-[30%] text-small text-default-400">
+      <div className="py-2 px-2 flex justify-around items-center">
+        {/* <span className="w-[30%] text-small text-default-400">
           {selectedKeys === "all"
             ? "All items selected"
             : `${selectedKeys.size} of ${filteredItems.length} selected`}
-        </span>
+        </span> */}
         <Pagination
           isCompact
           showControls
@@ -402,8 +402,8 @@ export default function PersonsTable({ persons }: PersonsTableProps) {
       classNames={{
         wrapper: "max-h-[382px]",
       }}
-      selectedKeys={selectedKeys}
-      selectionMode="multiple"
+    //   selectedKeys={selectedKeys}
+    //   selectionMode="multiple"
       sortDescriptor={sortDescriptor}
       topContent={topContent}
       topContentPlacement="outside"
