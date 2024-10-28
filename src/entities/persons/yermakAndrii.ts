@@ -1,0 +1,92 @@
+import { Person } from "./Person";
+
+export const yermakAndrii: Person = {
+  id: "7e9c1c1e-56b9-4146-a321-ba5dc2b2d570",
+  firstName: "Андрій",
+  lastName: "Єрмак",
+  birthDate: new Date(1971, 10, 21),
+  photoUrl:
+    "https://www.president.gov.ua/storage/j-image-storage/17/84/21/619d5583e22bb0b3123c7567c5573267_1610985382_wysiwyg.png",
+  education: [
+    {
+      start: new Date(1987, 8, 1),
+      end: new Date(1991, 4, 31),
+      degree: null,
+      institutionId: "b2385521-63f6-4a16-a221-05dc3c9f9b7c",
+      description: "",
+      actions: [],
+    },
+  ],
+  jobHistory: [
+    {
+      start: new Date(1991, 5, 1),
+      end: new Date(1995, 5, 1),
+      position: "Юрист",
+      institutionId: null,
+      description: "Юрист у приватному секторі",
+      actions: [],
+    },
+    {
+      start: new Date(1995, 5, 1),
+      end: null,
+      position: "Засновник",
+      institutionId: "63c9a6b3-968c-48e7-b374-1002ef80039c",
+      description:
+        "Разом з партнерами заснував ЗАТ «Юридична служба «Б. Е. Р. С. і партнери",
+      actions: [],
+    },
+    {
+      start: new Date(1997, 5, 1),
+      end: null,
+      position: "Засновник",
+      institutionId: null,
+      description: "заснував Міжнародну юридичну компанію",
+      actions: [],
+    },
+    {
+      start: new Date(2019, 4, 21),
+      end: new Date(2020, 1, 11),
+      position: "Помічник Президента України",
+      institutionId: "613b4738-1ac1-4ced-b745-229b6516f2fc",
+      description: "",
+      actions: [],
+    },
+    {
+      start: new Date(2019, 5, 21),
+      end: null,
+      position: "Член Національної інвестиційної ради",
+      institutionId: "74c60570-6fa7-4235-ae65-63d138f5d199",
+      description: "Призначений указом Президента України",
+      actions: [],
+    },
+    {
+      start: new Date(2019, 9, 7),
+      end: new Date(2020, 5, 19),
+      position: "Член Наглядової ради",
+      institutionId: "78c6d2cf-d724-48ef-a661-d44c8289f50e",
+      description: "",
+      actions: [],
+    },
+    {
+      start: new Date(2020, 1, 11),
+      end: null,
+      position: "Керівник Офісу Президента України",
+      institutionId: "613b4738-1ac1-4ced-b745-229b6516f2fc",
+      description: "Призначений указом Президента України",
+      actions: [],
+    },
+  ],
+  declarations: [],
+  partyMembership: [],
+  businesses: [],
+  actions: [],
+  investigations: [],
+  family: [],
+  criminalRecords: [],
+  website: {
+    url: "https://www.president.gov.ua/administration/office-management/kerivnik-ofisu-prezidenta-ukrayini",
+    name: "Сайт президента України",
+    icon: "website",
+  },
+  email: null,
+};
