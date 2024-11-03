@@ -1,5 +1,5 @@
 export type Action = {
-  date: Date;
+  date: Date | null;
   description: string;
   companions: string[];
 };

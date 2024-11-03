@@ -5,7 +5,15 @@ export const presidentOffice: Institution = {
   id: "613b4738-1ac1-4ced-b745-229b6516f2fc",
   name: "Офіс президента",
   country: "UA",
-  city: null,
+  city: 'Kyiv',
+  type: InstitutionType.government,
+};
+
+export const presidentAdministration: Institution = {
+  id: "fe4654ce-6d30-4ab0-b23a-8909946caf0c",
+  name: "Адміністрація Президента України",
+  country: "UA",
+  city: 'Kyiv',
   type: InstitutionType.government,
 };
 
@@ -25,6 +33,30 @@ export const nationalConcernUkroboronprom: Institution = {
   type: InstitutionType.government,
 };
 
+export const parliamentApparat: Institution = {
+  id: "bd993b2d-0a84-4342-94a1-365f0b06dc04",
+  name: "Апарат Верховної Ради України»",
+  country: "UA",
+  city: 'Kyiv',
+  type: InstitutionType.government,
+};
+
+export const embassyItaly: Institution = {
+  id: "b651af32-8d69-433f-8695-fa7e7e0fafae",
+  name: "Посольство України в Італійській Республіці",
+  country: "UA",
+  city: null,
+  type: InstitutionType.government,
+};
+
+export const oschadBank: Institution = {
+  id: "00262b9c-4e91-497e-a444-341e2ea9a6a1",
+  name: "АТ «Ощадбанк»",
+  country: "UA",
+  city: null,
+  type: InstitutionType.government,
+};
+
 /* Education */
 export const knuShevchenka: Institution = {
   id: "b2385521-63f6-4a16-a221-05dc3c9f9b7c",
@@ -37,6 +69,30 @@ export const knuShevchenka: Institution = {
 export const kneuVadumaGetmana: Institution = {
   id: "eb4344f7-90f3-489f-a138-67fd1dbcd090",
   name: "КНЕУ імені Вадима Гетьмана",
+  country: "UA",
+  city: "Kyiv",
+  type: InstitutionType.education,
+};
+
+export const ukrAcademyExternalTrading: Institution = {
+  id: "f29cf37e-4ef0-4772-9ca4-80ef7e29336b",
+  name: "Українська академія зовнішньої торгівлі",
+  country: "UA",
+  city: "Kyiv",
+  type: InstitutionType.education,
+};
+
+export const charteredInstituteOfMarketing: Institution = {
+  id: "82feb2a4-ca0c-4e8f-a5dc-2fec5cbe3200",
+  name: "Chartered Institute of Marketing",
+  country: "UK",
+  city: "Berkshire",
+  type: InstitutionType.education,
+};
+
+export const kyivStateAcademyOfBuildingAndArchitecture: Institution = {
+  id: "f2b5fccf-815a-414b-a01e-7d0414b007ac",
+  name: "Київська державна академія будівництва та архітектури",
   country: "UA",
   city: "Kyiv",
   type: InstitutionType.education,
@@ -83,6 +139,46 @@ export const ligaSmihu: Institution = {
   type: InstitutionType.privateBusiness,
 };
 
+export const macdonaldsUkraine: Institution = {
+  id: "6eb6e272-b06c-411e-b089-5c50fc29292e",
+  name: "МакДональдз Україна",
+  country: "UA",
+  city: null,
+  type: InstitutionType.privateBusiness,
+};
+
+export const metroGroup: Institution = {
+  id: "714c3acd-60ff-4c3b-8a2c-681f8145616d",
+  name: "METRO Group",
+  country: "UA",
+  city: null,
+  type: InstitutionType.privateBusiness,
+};
+
+export const farmastore: Institution = {
+  id: "808b56ff-34d8-412a-955a-0b6e9986491f",
+  name: "Farmastore",
+  country: "UA",
+  city: null,
+  type: InstitutionType.privateBusiness,
+};
+
+export const bankRenesansKredyt: Institution = {
+  id: "1768ddb7-baa3-4fb4-93bc-8a6b25e65a46",
+  name: "АТ «Банк Ренесанс Кредит»",
+  country: "UA",
+  city: null,
+  type: InstitutionType.privateBusiness,
+};
+
+export const sosDutiachiMistechka: Institution = {
+  id: "1b0a9878-74e4-473b-af72-f2ed8fbb3cca",
+  name: "СОС Дитячі Містечка",
+  country: "UA",
+  city: null,
+  type: InstitutionType.privateBusiness,
+};
+
 export const institutionsList: Institution[] = [
   /* Goverment */
   presidentOffice,
@@ -91,6 +187,7 @@ export const institutionsList: Institution[] = [
   /* Education */
   knuShevchenka,
   kneuVadumaGetmana,
+  ukrAcademyExternalTrading,
   /* Private businesses */
   bersAndCo,
   kvk,

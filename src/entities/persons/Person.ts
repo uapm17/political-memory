@@ -5,11 +5,12 @@ import { Institution } from "../institutions/Institution";
 export enum Degree {
   master = "master",
   bachelor = "bachelor",
+  pd = "pd", /* Doctor of Philosophy */
 }
 
 type EducationRecord = {
-  start: Date;
-  end: Date;
+  start: Date | null;
+  end: Date | null;
   degree: Degree | null;
   institutionId: string; // Institution
   description: string;
@@ -17,7 +18,7 @@ type EducationRecord = {
 };
 
 type Job = {
-  start: Date;
+  start: Date | null;
   end: Date | null;
   position: string;
   institutionId: string | null; // Institution
