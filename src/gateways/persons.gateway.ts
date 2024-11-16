@@ -1,4 +1,3 @@
-import { httpsCallable } from "firebase/functions";
 import {
   addDoc,
   collection,
@@ -69,13 +68,3 @@ export const editPerson = ({
 
   return updateDoc(personRef, person);
 };
-
-export const scrapTeamByExternalLink = httpsCallable(
-  functions,
-  "scrapTeamByExternalLink"
-);
-
-export const updatePersonSkills = httpsCallable(
-  functions,
-  "updatePersonSkillsV2"
-);

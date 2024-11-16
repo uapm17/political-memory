@@ -1,7 +1,6 @@
 import { Party, PartyStatus } from "./Party";
 
 const slugaNaroduPary: Party = {
-  id: "3f518592-9ddf-48a2-9eba-7d20919e50d4",
   name: "Слуга народу",
   status: PartyStatus.active,
   description:
@@ -26,7 +25,6 @@ const slugaNaroduPary: Party = {
 };
 
 const yevropeiskaSolidarnist: Party = {
-  id: "732764f3-72e8-4899-b67e-26670e4879e6",
   name: "Європейська Солідарність",
   status: PartyStatus.active,
   description: "Українська правоцентристська консервативна політична партія",
@@ -50,7 +48,6 @@ const yevropeiskaSolidarnist: Party = {
 };
 
 const batkivshchuna: Party = {
-  id: "4b5a2cf5-8228-4c2d-a880-db3da8923e93",
   name: "ВО «Батьківщина»",
   status: PartyStatus.active,
   description: "Українська політична партія центристського[8][9] спрямування",
@@ -74,7 +71,6 @@ const batkivshchuna: Party = {
 };
 
 const golos: Party = {
-  id: "2edef915-dfe5-4bfd-9681-4d35a980038d",
   name: "Голос",
   status: PartyStatus.active,
   description: "Українська ліберальна політична партія",
@@ -98,7 +94,6 @@ const golos: Party = {
 };
 
 const udar: Party = {
-  id: "9fcc2aac-4d73-4b2f-8e53-a9ea1160b382",
   name: "УДАР Віталія Кличка",
   status: PartyStatus.active,
   description: "всеукраїнська політична партія",
@@ -122,7 +117,6 @@ const udar: Party = {
 };
 
 const radukalnaLiashka: Party = {
-  id: "1025fe60-26ce-49c9-ba4c-e6d4ab638fc2",
   name: "Радикальна партія Олега Ляшка",
   status: PartyStatus.active,
   description: "всеукраїнська політична партія",
@@ -155,5 +149,5 @@ export const partiesList: Party[] = [
 ];
 
 export const partiesMap = new Map(
-  partiesList.map((party) => [party.id, party])
+  partiesList.map((party) => [party.name, party])
 );

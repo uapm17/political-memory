@@ -1,16 +1,16 @@
-'use client'
+"use client";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { persons } from "@/src/entities/persons/persons";
 import MainStructure from "@/src/components/structure/MainStructure";
-import { createPersonAction } from "@/src/entities/persons/persons.actions";
+import { partiesList } from "@/src/entities/parties/parties";
+import { createPartyAction } from "@/src/entities/parties/parties.actions";
 
 export default function Home() {
   const dispatch = useDispatch();
 
   const handleCreate = useCallback(() => {
-    persons.forEach((person) => {
-      dispatch(createPersonAction(person));
+    partiesList.forEach((party) => {
+      dispatch(createPartyAction(party));
     });
   }, []);
 

@@ -8,7 +8,7 @@ export enum PartyStatus {
 }
 
 export type Party = {
-  id: string;
+  // id: string;
   name: string;
   logoUrl: string;
   description: string;
