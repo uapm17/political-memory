@@ -2,15 +2,15 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import MainStructure from "@/src/components/structure/MainStructure";
-import { partiesList } from "@/src/entities/parties/parties";
-import { createPartyAction } from "@/src/entities/parties/parties.actions";
+import { institutionsList } from "@/src/entities/institutions/institutions";
+import { createInstitutionAction } from "@/src/entities/institutions/institutions.actions";
 
 export default function Home() {
   const dispatch = useDispatch();
 
   const handleCreate = useCallback(() => {
-    partiesList.forEach((party) => {
-      dispatch(createPartyAction(party));
+    institutionsList.forEach((institution) => {
+      dispatch(createInstitutionAction(institution));
     });
   }, []);
 

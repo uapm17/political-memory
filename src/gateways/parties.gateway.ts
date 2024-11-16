@@ -16,26 +16,8 @@ export const getPartyDocPath = (partyId: string) => {
   return `parties/${partyId}`;
 };
 
-export const getPartyUpdatesCollectionPath = (partyId: string) => {
-  return `parties/${partyId}/partyUpdates`;
-};
-
-export const getPartyUpdatesCollectionRef = (partyId: string) => {
-  return collection(db, getPartyUpdatesCollectionPath(partyId));
-};
-
 export const getPartyDocRef = (partyId: string) => {
   return doc(db, `parties/${partyId}`);
-};
-
-export const getPartySkillsDocPath = (partyId: string) => {
-  return `parties/${partyId}/metadata/skills`;
-};
-
-export const getPartySkillsDocRef = (partyId: string) => {
-  const docPath = getPartySkillsDocPath(partyId);
-
-  return doc(db, docPath);
 };
 
 export const fetchPartyById = ({ partyId }: { partyId: string }) => {
@@ -44,7 +26,7 @@ export const fetchPartyById = ({ partyId }: { partyId: string }) => {
   return getDoc(partyRef).then(handleDocumentSnapshot);
 };
 
-export const fetchPlayersList = ({ teamId }: { teamId: string }) => {
+export const fetchPartiesList = ({ teamId }: { teamId: string }) => {
   const partiesRef = collection(db, "parties");
 
   const q = query(partiesRef, where(`teams.${teamId}.active`, "==", true));

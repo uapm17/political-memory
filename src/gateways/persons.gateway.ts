@@ -16,26 +16,8 @@ export const getPersonDocPath = (personId: string) => {
   return `persons/${personId}`;
 };
 
-export const getPersonUpdatesCollectionPath = (personId: string) => {
-  return `persons/${personId}/personUpdates`;
-};
-
-export const getPersonUpdatesCollectionRef = (personId: string) => {
-  return collection(db, getPersonUpdatesCollectionPath(personId));
-};
-
 export const getPersonDocRef = (personId: string) => {
   return doc(db, `persons/${personId}`);
-};
-
-export const getPersonSkillsDocPath = (personId: string) => {
-  return `persons/${personId}/metadata/skills`;
-};
-
-export const getPersonSkillsDocRef = (personId: string) => {
-  const docPath = getPersonSkillsDocPath(personId);
-
-  return doc(db, docPath);
 };
 
 export const fetchPersonById = ({ personId }: { personId: string }) => {
@@ -44,7 +26,7 @@ export const fetchPersonById = ({ personId }: { personId: string }) => {
   return getDoc(personRef).then(handleDocumentSnapshot);
 };
 
-export const fetchPlayersList = ({ teamId }: { teamId: string }) => {
+export const fetchPersonsList = ({ teamId }: { teamId: string }) => {
   const personsRef = collection(db, "persons");
 
   const q = query(personsRef, where(`teams.${teamId}.active`, "==", true));
