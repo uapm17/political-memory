@@ -1,9 +1,22 @@
 import institutionsActionTypes from "./institutions.actionTypes";
 import { Institution } from "./Institution";
 
-export const requestInstitution = ({ institutionId }: { institutionId: string }) => ({
+export const requestInstitution = ({
+  institutionId,
+}: {
+  institutionId: string;
+}) => ({
   type: institutionsActionTypes.REQUEST_INSTITUTION_DATA,
   institutionId,
+});
+
+export const requestInstitutionsList = () => ({
+  type: institutionsActionTypes.REQUEST_INSTITUTIONS_LIST,
+});
+
+export const institutionsListReceived = (institutionsList: Institution[]) => ({
+  type: institutionsActionTypes.INSTITUTIONS_LIST_RECEIVED,
+  institutionsList,
 });
 
 export const setInstitution = (institution: Institution | null) => ({

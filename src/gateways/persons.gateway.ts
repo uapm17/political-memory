@@ -26,12 +26,10 @@ export const fetchPersonById = ({ personId }: { personId: string }) => {
   return getDoc(personRef).then(handleDocumentSnapshot);
 };
 
-export const fetchPersonsList = ({ teamId }: { teamId: string }) => {
+export const fetchPersonsList = () => {
   const personsRef = collection(db, "persons");
 
-  const q = query(personsRef, where(`teams.${teamId}.active`, "==", true));
-
-  return getDocs(q).then(handleCollectionSnapshot);
+  return getDocs(personsRef).then(handleCollectionSnapshot);
 };
 
 export const createPerson = ({ person }: { person: Person }) => {

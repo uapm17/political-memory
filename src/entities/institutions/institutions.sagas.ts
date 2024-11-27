@@ -5,11 +5,14 @@ import {
   updateInstitution,
   requestInstitution,
   createInstitutionAction,
+  requestInstitutionsList,
+  institutionsListReceived,
 } from "./institutions.actions";
 import { Institution } from "./Institution";
 import {
   createInstitution,
   fetchInstitutionById,
+  fetchInstitutionsList,
 } from "@/src/gateways/institutions.gateway";
 
 export function* createInstitutionSaga({
@@ -35,6 +38,15 @@ export function* fetchInstitutionSaga({
   }
 }
 
+export function* fetchInstitutionsListSaga() {
+  try {
+    const institutionsList: Institution[] = yield call(fetchInstitutionsList);
+    yield put(institutionsListReceived(institutionsList));
+  } catch (e: any) {
+    throw new Error(e);
+  }
+}
+
 export function* updateInstitutionSaga({
   institutionId,
   institution,
@@ -55,6 +67,10 @@ function* institutionsSaga() {
     takeLatest(
       institutionsActionTypes.REQUEST_INSTITUTION_DATA,
       fetchInstitutionSaga
+    ),
+    takeLatest(
+      institutionsActionTypes.REQUEST_INSTITUTIONS_LIST,
+      fetchInstitutionsListSaga
     ),
     takeLatest(
       institutionsActionTypes.UPDATE_INSTITUTION_DATA,

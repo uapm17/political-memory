@@ -6,6 +6,15 @@ export const requestPerson = ({ personId }: { personId: string }) => ({
   personId,
 });
 
+export const requestPersonsList = () => ({
+  type: personActionTypes.REQUEST_PERSONS_LIST,
+});
+
+export const personsListReceived = (personsList: Person[]) => ({
+  type: personActionTypes.PERSONS_LIST_RECEIVED,
+  personsList,
+});
+
 export const setPerson = (person: Person | null) => ({
   type: personActionTypes.PERSON_DATA_RECEIVED,
   person,

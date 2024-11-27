@@ -2,15 +2,15 @@ import { takeLatest, all, put, call } from "redux-saga/effects";
 import personActionTypes from "./persons.actionTypes";
 import {
   setPerson,
-  updatePerson,
   requestPerson,
   createPersonAction,
+  personsListReceived,
 } from "./persons.actions";
 import { Person } from "./Person";
 import {
   createPerson,
   fetchPersonById,
-  updatePersonSkills,
+  fetchPersonsList,
 } from "@/src/gateways/persons.gateway";
 
 export function* createPersonSaga({
@@ -34,16 +34,10 @@ export function* fetchPersonSaga({
   }
 }
 
-export function* updatePersonSaga({
-  personId,
-  person,
-}: ReturnType<typeof updatePerson>) {
+export function* fetchPersonsListSaga() {
   try {
-    yield call(updatePersonSkills, {
-      personId,
-      person,
-    });
-    yield put(requestPerson({ personId }));
+    const personsList: Person[] = yield call(fetchPersonsList);
+    yield put(personsListReceived(personsList));
   } catch (e: any) {
     throw new Error(e);
   }
@@ -52,7 +46,7 @@ export function* updatePersonSaga({
 function* personSaga() {
   yield all([
     takeLatest(personActionTypes.REQUEST_PERSON_DATA, fetchPersonSaga),
-    takeLatest(personActionTypes.UPDATE_PERSON_DATA, updatePersonSaga),
+    takeLatest(personActionTypes.REQUEST_PERSONS_LIST, fetchPersonsListSaga),
     takeLatest(personActionTypes.CREATE_PERSON, createPersonSaga),
   ]);
 }

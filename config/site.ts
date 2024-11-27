@@ -13,6 +13,10 @@ export const siteConfig = {
       href: "/parties",
     },
     {
+      label: "Persons",
+      href: "/persons",
+    },
+    {
       label: "Blog",
       href: "/blog",
     },

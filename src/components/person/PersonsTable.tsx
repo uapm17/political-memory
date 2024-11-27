@@ -30,6 +30,8 @@ import { PlusIcon } from "@/src/icons/PlusIcon";
 import { Person } from "@/src/entities/persons/Person";
 import { differenceInYears } from "date-fns";
 import { partiesMap } from "@/src/entities/parties/parties";
+import { useInstitutions } from "@/src/entities/institutions/institutions.hooks";
+import { Institution } from "@/src/entities/institutions/Institution";
 
 // const statusColorMap: Record<string, ChipProps["color"]> = {
 //   active: "success",
@@ -50,14 +52,17 @@ const INITIAL_VISIBLE_COLUMNS = ["name", "age", "position", "party"];
 type PersonInfo = {
   id: string;
   name: string;
-  position: string;
+  position: string[];
   age: number;
   avatar: string;
   party: string;
   email: string | null;
 };
 
-const formatPerson = (person: Person, institutionId: string): PersonInfo => {
+const formatPerson = (
+  person: Person,
+  institutionsMap: Map<string, Institution>
+): PersonInfo => {
   const {
     id,
     lastName,
@@ -70,10 +75,18 @@ const formatPerson = (person: Person, institutionId: string): PersonInfo => {
   } = person;
   const name = `${lastName} ${firstName}`;
   const age = differenceInYears(new Date(), birthDate);
-  const currentJob =
-    jobHistory.find(
-      (record) => !record.end && record.institutionId === institutionId
-    )?.position || "-";
+  const currentJob = jobHistory
+    .filter((record) => !record.end)
+    .map((record) => {
+      const institution =
+        record.institutionId && institutionsMap.get(record.institutionId);
+
+      if (institution) {
+        return `${record.position} [${institution.name}]`;
+      }
+
+      return record.position;
+    });
   const currentPartyId = partyMembership.find((record) => !record.end)?.partyId;
   const party = currentPartyId && partiesMap.get(currentPartyId)?.name;
 
@@ -90,13 +103,14 @@ const formatPerson = (person: Person, institutionId: string): PersonInfo => {
 
 interface PersonsTableProps {
   persons: Person[];
-  institutionId: string;
+  institutionId?: string;
 }
 
 export default function PersonsTable({
   persons,
-  institutionId,
+  // institutionId,
 }: PersonsTableProps) {
+  const { institutionsMap } = useInstitutions();
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
     new Set([])
@@ -110,7 +124,6 @@ export default function PersonsTable({
     column: "age",
     direction: "ascending",
   });
-  //   const
 
   const [page, setPage] = React.useState(1);
 
@@ -131,7 +144,7 @@ export default function PersonsTable({
   //   ];
   const statusOptions: Array<{ name: string; uid: string }> = [];
   const formattedPersons = persons.map((person) =>
-    formatPerson(person, institutionId)
+    formatPerson(person, institutionsMap)
   );
 
   const filteredItems = React.useMemo(() => {
@@ -188,15 +201,15 @@ export default function PersonsTable({
               {personInfo.email}
             </User>
           );
-        case "role":
+        case "position": {
           return (
             <div className="flex flex-col">
-              <p className="text-bold text-small capitalize">{cellValue}</p>
-              {/* <p className="text-bold text-tiny capitalize text-default-400">
-                {personInfo.team}
-              </p> */}
+              <p className="text-bold text-small capitalize">
+                {((cellValue as string[]) || []).join(", ")}
+              </p>
             </div>
           );
+        }
         //   case "status":
         //     return (
         //       <Chip

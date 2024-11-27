@@ -30,12 +30,10 @@ export const fetchInstitutionById = ({
   return getDoc(institutionRef).then(handleDocumentSnapshot);
 };
 
-export const fetchInstitutionsList = ({ teamId }: { teamId: string }) => {
+export const fetchInstitutionsList = () => {
   const institutionsRef = collection(db, "institutions");
 
-  const q = query(institutionsRef, where(`teams.${teamId}.active`, "==", true));
-
-  return getDocs(q).then(handleCollectionSnapshot);
+  return getDocs(institutionsRef).then(handleCollectionSnapshot);
 };
 
 export const createInstitution = ({
