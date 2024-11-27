@@ -5,7 +5,7 @@ import { Institution } from "../institutions/Institution";
 export enum Degree {
   master = "master",
   bachelor = "bachelor",
-  pd = "pd", /* Doctor of Philosophy */
+  pd = "pd" /* Doctor of Philosophy */,
 }
 
 type EducationRecord = {
@@ -17,6 +17,21 @@ type EducationRecord = {
   actions: Action[];
 };
 
+type JobDetails = {
+  type: "uaDeputy";
+  convocationNumber: number;
+  choosenBy: string;
+  party: string;
+  listNumber: number;
+  jobStart: Date;
+  position: string;
+  otherPositions: string[];
+  generalInfo: string;
+  links: Record<string, string>;
+  fullTimeAssistants: string[];
+  volonteerAssistants: string[];
+};
+
 type Job = {
   start: Date | null;
   end: Date | null;
@@ -24,6 +39,7 @@ type Job = {
   institutionId: string | null; // Institution
   description: string;
   actions: Action[];
+  details: JobDetails;
 };
 
 type Declaration = {
