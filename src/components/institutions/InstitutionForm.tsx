@@ -52,12 +52,25 @@ export default function InstitutionForm({
           {...register("name")}
           errorMessage={({ validationDetails }) => {
             if (validationDetails.valueMissing) {
-              return "Please enter first name";
+              return "Please enter name";
             }
           }}
-          label="First Name"
+          label="Name"
           labelPlacement="outside"
-          placeholder="Enter first name"
+          placeholder="Enter name"
+        />
+
+        <Input
+          isRequired
+          {...register("description")}
+          errorMessage={({ validationDetails }) => {
+            if (validationDetails.valueMissing) {
+              return "Please enter description";
+            }
+          }}
+          label="Description"
+          labelPlacement="outside"
+          placeholder="Enter description"
         />
 
         <Controller
@@ -72,6 +85,7 @@ export default function InstitutionForm({
               labelPlacement="outside"
               placeholder="Select country"
               value={value}
+              defaultSelectedKeys={[value]}
               onChange={onChange}
             >
               {countriesOptios.map((option) => (
@@ -88,12 +102,25 @@ export default function InstitutionForm({
           {...register("city")}
           errorMessage={({ validationDetails }) => {
             if (validationDetails.valueMissing) {
-              return "Please enter last email";
+              return "City";
             }
           }}
-          label="Last name"
+          label="City"
           labelPlacement="outside"
-          placeholder="Enter last name"
+          placeholder="City"
+        />
+
+        <Input
+          isRequired
+          {...register("logoUrl")}
+          errorMessage={({ validationDetails }) => {
+            if (validationDetails.valueMissing) {
+              return "Logo URL";
+            }
+          }}
+          label="Logo URL"
+          labelPlacement="outside"
+          placeholder="Logo URL"
         />
 
         <Controller
@@ -104,9 +131,10 @@ export default function InstitutionForm({
               isRequired
               ref={ref}
               name={name}
-              label="Country"
+              label="Type"
               labelPlacement="outside"
-              placeholder="Select country"
+              placeholder="Select type"
+              defaultSelectedKeys={[value]}
               value={value}
               onChange={onChange}
             >

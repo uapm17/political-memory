@@ -10,7 +10,10 @@ import {
 } from "firebase/firestore";
 import { handleCollectionSnapshot, handleDocumentSnapshot } from "./utils";
 import { db } from "../common/firebase";
-import { Institution } from "../entities/institutions/Institution";
+import {
+  Institution,
+  InstitutionData,
+} from "../entities/institutions/Institution";
 
 export const getInstitutionDocPath = (institutionId: string) => {
   return `institutions/${institutionId}`;
@@ -47,12 +50,12 @@ export const createInstitution = ({
 
 export const editInstitution = ({
   institutionId,
-  institution,
+  institutionData,
 }: {
   institutionId: string;
-  institution: Institution;
+  institutionData: InstitutionData;
 }) => {
   const institutionRef = doc(db, `institutions/${institutionId}`);
 
-  return updateDoc(institutionRef, institution);
+  return updateDoc(institutionRef, institutionData);
 };

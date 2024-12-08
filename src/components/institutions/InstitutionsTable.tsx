@@ -1,15 +1,14 @@
 import React, { useMemo } from "react";
-import { differenceInYears } from "date-fns";
 import { User } from "@nextui-org/user";
+import { useRouter } from "next/router";
 import { Chip } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { Pagination } from "@nextui-org/pagination";
 import { SearchIcon } from "@/src/icons/SearchIcon";
 import { capitalize } from "@/src/utils/string.utils";
-import { partiesMap } from "@/src/entities/parties/parties";
 import { ChevronDownIcon } from "@/src/icons/ChevronDownIcon";
-import { VerticalDotsIcon } from "@/src/icons/VerticalDotsIcon";
+import { typesColorMap } from "@/src/entities/institutions/institutions.utils";
 import {
   Dropdown,
   DropdownItem,
@@ -31,24 +30,13 @@ import {
   TableHeader,
   TableRow,
 } from "@nextui-org/table";
-import InstitutionFormBtn from "./InstitutionFormBtn";
-
-const typesColorMap = new Map<
-  InstitutionType,
-  "default" | "warning" | "success" | "primary" | "secondary" | "danger"
->([
-  [InstitutionType.education, "default"],
-  [InstitutionType.government, "warning"],
-  [InstitutionType.privateBusiness, "success"],
-  [InstitutionType.stateCompany, "primary"],
-]);
+import InstitutionFormBtn from "./CreateInstitutionBtn";
 
 const columns = [
   { name: "NAME", uid: "name", sortable: true },
   { name: "CITY", uid: "city", sortable: true },
   { name: "COUNTRY", uid: "country" },
   { name: "TYPE", uid: "type" },
-  { name: "ACTIONS", uid: "actions" },
 ];
 
 interface InstitutionsTableProps {
@@ -58,9 +46,10 @@ interface InstitutionsTableProps {
 export default function InstitutionsTable({
   institutions,
 }: InstitutionsTableProps) {
+  const navigate = useRouter;
   const [filterValue, setFilterValue] = React.useState("");
   const [typeFilter, setTypeFilter] = React.useState<Selection>("all");
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
     column: "name",
     direction: "ascending",
@@ -148,23 +137,6 @@ export default function InstitutionsTable({
             >
               {cellValue}
             </Chip>
-          );
-        case "actions":
-          return (
-            <div className="relative flex justify-end items-center gap-2">
-              <Dropdown>
-                <DropdownTrigger>
-                  <Button isIconOnly size="sm" variant="light">
-                    <VerticalDotsIcon className="text-default-300" />
-                  </Button>
-                </DropdownTrigger>
-                <DropdownMenu>
-                  <DropdownItem>View</DropdownItem>
-                  <DropdownItem>Edit</DropdownItem>
-                  <DropdownItem>Delete</DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </div>
           );
         default:
           return cellValue;
@@ -337,7 +309,7 @@ export default function InstitutionsTable({
       </TableHeader>
       <TableBody emptyContent={"No users found"} items={sortedItems}>
         {(item) => (
-          <TableRow key={item.id}>
+          <TableRow key={item.id} href={`/institutions/${item.id}`}>
             {(columnKey) => (
               <TableCell>{renderCell(item, columnKey)}</TableCell>
             )}

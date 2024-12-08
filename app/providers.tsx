@@ -16,7 +16,10 @@ export function Providers({ children, themeProps }: ProvidersProps) {
   const router = useRouter();
 
   return (
-    <NextUIProvider locale={(new Intl.NumberFormat()).resolvedOptions().locale} navigate={router.push}>
+    <NextUIProvider
+      locale={new Intl.NumberFormat().resolvedOptions().locale}
+      navigate={router.push}
+    >
       <NextThemesProvider {...themeProps}>
         <StoreProvider>{children}</StoreProvider>
       </NextThemesProvider>

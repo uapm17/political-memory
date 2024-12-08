@@ -11,3 +11,11 @@ export const institutionsListSelector = createSelector(
     return Object.values(institutionsHash) as Institution[];
   }
 );
+
+export const institutionSelector = createSelector(
+  institutionsHashSelector,
+  (_: RootState, { institutionId }: { institutionId: string }) => institutionId,
+  (institutionsHash, institutionId) => {
+    return institutionsHash[institutionId] as Institution | undefined;
+  }
+);

@@ -1,5 +1,5 @@
 import institutionsActionTypes from "./institutions.actionTypes";
-import { Institution } from "./Institution";
+import { Institution, InstitutionData } from "./Institution";
 
 export const requestInstitution = ({
   institutionId,
@@ -35,12 +35,12 @@ export const clearInstitution = () => ({
 
 export const updateInstitution = ({
   institutionId,
-  institution,
+  institutionData,
 }: {
   institutionId: string;
-  institution: Institution;
+  institutionData: InstitutionData;
 }) => ({
   type: institutionsActionTypes.UPDATE_INSTITUTION_DATA,
   institutionId,
-  institution,
+  institutionData,
 });

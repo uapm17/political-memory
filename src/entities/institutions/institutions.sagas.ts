@@ -2,7 +2,7 @@ import { takeLatest, all, put, call } from "redux-saga/effects";
 import institutionsActionTypes from "./institutions.actionTypes";
 import {
   setInstitution,
-  updateInstitution,
+  updateInstitution as updateInstitutionAction,
   requestInstitution,
   createInstitutionAction,
   requestInstitutionsList,
@@ -11,6 +11,7 @@ import {
 import { Institution } from "./Institution";
 import {
   createInstitution,
+  editInstitution,
   fetchInstitutionById,
   fetchInstitutionsList,
 } from "@/src/gateways/institutions.gateway";
@@ -29,10 +30,12 @@ export function* fetchInstitutionSaga({
   institutionId,
 }: ReturnType<typeof requestInstitution>) {
   try {
-    const institutionData: Institution = yield call(fetchInstitutionById, {
+    const institution: Institution = yield call(fetchInstitutionById, {
       institutionId,
     });
-    yield put(setInstitution(institutionData));
+    if (institution) {
+      yield put(setInstitution(institution));
+    }
   } catch (e: any) {
     throw new Error(e);
   }
@@ -49,12 +52,12 @@ export function* fetchInstitutionsListSaga() {
 
 export function* updateInstitutionSaga({
   institutionId,
-  institution,
-}: ReturnType<typeof updateInstitution>) {
+  institutionData,
+}: ReturnType<typeof updateInstitutionAction>) {
   try {
-    yield call(updateInstitution, {
+    yield call(editInstitution, {
       institutionId,
-      institution,
+      institutionData,
     });
     yield put(requestInstitution({ institutionId }));
   } catch (e: any) {

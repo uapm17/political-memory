@@ -10,3 +10,13 @@ export const createEmptyInstitution = (): InstitutionData => {
     logoUrl: null,
   };
 };
+
+export const typesColorMap = new Map<
+  InstitutionType,
+  "default" | "warning" | "success" | "primary" | "secondary" | "danger"
+>([
+  [InstitutionType.education, "default"],
+  [InstitutionType.government, "warning"],
+  [InstitutionType.privateBusiness, "success"],
+  [InstitutionType.stateCompany, "primary"],
+]);

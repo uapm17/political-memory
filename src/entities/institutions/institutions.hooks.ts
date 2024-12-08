@@ -1,7 +1,17 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/src/hooks";
-import { requestInstitutionsList } from "./institutions.actions";
-import { institutionsListSelector } from "./institutions.selectors";
+import {
+  requestInstitution,
+  requestInstitutionsList,
+  updateInstitution,
+} from "./institutions.actions";
+import {
+  institutionSelector,
+  institutionsListSelector,
+} from "./institutions.selectors";
+import { AppStore, RootState } from "@/src/store";
+import { InstitutionData } from "./Institution";
+import { update } from "lodash";
 
 export const useInstitutions = () => {
   const dispatch = useAppDispatch();
@@ -18,4 +28,26 @@ export const useInstitutions = () => {
   );
 
   return { institutionsMap, institutions };
+};
+
+export const useInstitution = (institutionId: string) => {
+  const dispatch = useAppDispatch();
+  const institution = useAppSelector((state: RootState) =>
+    institutionSelector(state, { institutionId })
+  );
+
+  useEffect(() => {
+    if (!institution) {
+      dispatch(requestInstitution({ institutionId }));
+    }
+  }, [institution, institutionId]);
+
+  const handleChange = useCallback(
+    (institutionData: InstitutionData, institutionId: string) => {
+      dispatch(updateInstitution({ institutionData, institutionId }));
+    },
+    []
+  );
+
+  return { institution, onUpdate: handleChange };
 };

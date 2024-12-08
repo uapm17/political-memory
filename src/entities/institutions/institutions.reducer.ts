@@ -18,8 +18,8 @@ const institution = (state: InstitutionsState = initialState, action: any) => {
         ...state,
         institutionsHash: {
           ...state.institutionsHash,
-          [action.Institution.id]: {
-            ...action.Institution,
+          [action.institution.id]: {
+            ...action.institution,
           },
         },
       };
