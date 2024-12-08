@@ -17,5 +17,5 @@ export const useInstitutions = () => {
     institutions.map((record) => [record.id, record])
   );
 
-  return { institutionsMap };
+  return { institutionsMap, institutions };
 };

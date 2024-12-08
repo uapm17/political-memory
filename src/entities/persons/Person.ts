@@ -108,14 +108,13 @@ type FamilyMember = {
   description: string;
 };
 
-export type Person = {
-  id: string;
+export type PersonData = {
   firstName: string;
   lastName: string;
   birthDate: Date;
   email: string | null;
   website: ExternalLink | null;
-  photoUrl: string;
+  photoUrl: string | null;
   education: EducationRecord[];
   jobHistory: Job[];
   declarations: Declaration[];
@@ -126,3 +125,7 @@ export type Person = {
   family: FamilyMember[];
   criminalRecords: CriminalRecord[];
 };
+
+export type Person = PersonData & {
+  id: string;
+}

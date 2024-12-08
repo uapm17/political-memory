@@ -32,6 +32,7 @@ import { differenceInYears } from "date-fns";
 import { partiesMap } from "@/src/entities/parties/parties";
 import { useInstitutions } from "@/src/entities/institutions/institutions.hooks";
 import { Institution } from "@/src/entities/institutions/Institution";
+import PersonFormBtn from "./PersonFormBtn";
 
 // const statusColorMap: Record<string, ChipProps["color"]> = {
 //   active: "success",
@@ -54,7 +55,7 @@ type PersonInfo = {
   name: string;
   position: string[];
   age: number;
-  avatar: string;
+  avatar: string | null;
   party: string;
   email: string | null;
 };
@@ -194,7 +195,10 @@ export default function PersonsTable({
         case "name":
           return (
             <User
-              avatarProps={{ radius: "lg", src: personInfo.avatar }}
+              avatarProps={{
+                radius: "lg",
+                src: personInfo.avatar || undefined,
+              }}
               description={personInfo.email}
               name={cellValue}
             >
@@ -292,6 +296,7 @@ export default function PersonsTable({
             onClear={() => onClear()}
             onValueChange={onSearchChange}
           />
+          <PersonFormBtn />
           <div className="flex gap-3">
             {/* <Dropdown>
               <DropdownTrigger className="hidden sm:flex">

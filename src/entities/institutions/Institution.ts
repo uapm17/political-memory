@@ -5,10 +5,15 @@ export enum InstitutionType {
   government = "government",
 }
 
-export type Institution = {
-  id: string;
+export type InstitutionData = {
   name: string;
+  description: string;
   country: string;
   city: string | null;
   type: InstitutionType;
+  logoUrl: string | null;
+};
+
+export type Institution = InstitutionData & {
+  id: string;
 };

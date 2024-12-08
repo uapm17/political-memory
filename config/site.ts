@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Political Memory of Ukraine",
-  description: "Make beautiful websites regardless of your design experience.",
+  description: "People remember",
   navItems: [
     {
       label: "Home",
@@ -17,6 +17,10 @@ export const siteConfig = {
       href: "/persons",
     },
     {
+      label: "Institutions",
+      href: "/institutions",
+    },
+    {
       label: "Blog",
       href: "/blog",
     },
@@ -27,43 +31,31 @@ export const siteConfig = {
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Home",
+      href: "/",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "Parties",
+      href: "/parties",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Persons",
+      href: "/persons",
     },
     {
-      label: "Team",
-      href: "/team",
+      label: "Institutions",
+      href: "/institutions",
     },
     {
-      label: "Calendar",
-      href: "/calendar",
+      label: "Blog",
+      href: "/blog",
     },
     {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
+      label: "About",
+      href: "/about",
     },
   ],
   links: {
     github: "https://github.com/uapm17/political-memory",
-    twitter: "https://twitter.com/getnextui",
-    docs: "https://nextui.org",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
   },
 };
