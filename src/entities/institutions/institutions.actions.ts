@@ -24,9 +24,9 @@ export const setInstitution = (institution: Institution | null) => ({
   institution,
 });
 
-export const createInstitutionAction = (institution: Institution) => ({
+export const createInstitutionAction = (institutionData: InstitutionData) => ({
   type: institutionsActionTypes.CREATE_INSTITUTION,
-  institution,
+  institutionData,
 });
 
 export const clearInstitution = () => ({

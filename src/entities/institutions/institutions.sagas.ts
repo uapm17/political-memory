@@ -5,7 +5,6 @@ import {
   updateInstitution as updateInstitutionAction,
   requestInstitution,
   createInstitutionAction,
-  requestInstitutionsList,
   institutionsListReceived,
 } from "./institutions.actions";
 import { Institution } from "./Institution";
@@ -17,10 +16,10 @@ import {
 } from "@/src/gateways/institutions.gateway";
 
 export function* createInstitutionSaga({
-  institution,
+  institutionData,
 }: ReturnType<typeof createInstitutionAction>) {
   try {
-    yield call(createInstitution, { institution });
+    yield call(createInstitution, { institutionData });
   } catch (e: any) {
     throw new Error(e);
   }

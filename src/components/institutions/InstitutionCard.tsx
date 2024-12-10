@@ -14,7 +14,8 @@ export default function InstitutionCard({ institution }: InstitutionCardProps) {
     return null;
   }
 
-  const { name, description, country, city, type, logoUrl } = institution;
+  const { name, description, country, city, type, logoUrl, websiteUrl } =
+    institution;
 
   return (
     <Card className="py-4">
@@ -40,6 +41,15 @@ export default function InstitutionCard({ institution }: InstitutionCardProps) {
           src={logoUrl || undefined}
         />
         <p className="text-sm mt-4">{description}</p>
+        {websiteUrl && (
+          <a
+            href={websiteUrl}
+            target="_blank"
+            className="text-sm text-primary underline mt-2 ml-auto mr-2"
+          >
+            Visit website
+          </a>
+        )}
       </CardBody>
     </Card>
   );

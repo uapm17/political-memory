@@ -4,6 +4,7 @@ export const createEmptyInstitution = (): InstitutionData => {
   return {
     name: "",
     description: "",
+    websiteUrl: null,
     country: "UKR",
     city: null,
     type: InstitutionType.government,

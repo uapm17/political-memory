@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { User } from "@nextui-org/user";
-import { useRouter } from "next/router";
 import { Chip } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
@@ -30,7 +29,7 @@ import {
   TableHeader,
   TableRow,
 } from "@nextui-org/table";
-import InstitutionFormBtn from "./CreateInstitutionBtn";
+import CreateInstitutionBtn from "./CreateInstitutionBtn";
 
 const columns = [
   { name: "NAME", uid: "name", sortable: true },
@@ -46,7 +45,6 @@ interface InstitutionsTableProps {
 export default function InstitutionsTable({
   institutions,
 }: InstitutionsTableProps) {
-  const navigate = useRouter;
   const [filterValue, setFilterValue] = React.useState("");
   const [typeFilter, setTypeFilter] = React.useState<Selection>("all");
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -120,6 +118,7 @@ export default function InstitutionsTable({
               avatarProps={{
                 radius: "lg",
                 src: institution.logoUrl || undefined,
+                className: "shrink-0",
               }}
               description={institution.description}
               name={cellValue}
@@ -217,7 +216,7 @@ export default function InstitutionsTable({
                 ))}
               </DropdownMenu>
             </Dropdown>
-            <InstitutionFormBtn />
+            <CreateInstitutionBtn />
           </div>
         </div>
         <div className="flex justify-between items-center">

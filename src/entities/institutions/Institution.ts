@@ -8,6 +8,7 @@ export enum InstitutionType {
 export type InstitutionData = {
   name: string;
   description: string;
+  websiteUrl: string | null;
   country: string;
   city: string | null;
   type: InstitutionType;

@@ -73,6 +73,19 @@ export default function InstitutionForm({
           placeholder="Enter description"
         />
 
+        <Input
+          isRequired
+          {...register("websiteUrl")}
+          errorMessage={({ validationDetails }) => {
+            if (validationDetails.valueMissing) {
+              return "Please enter URL";
+            }
+          }}
+          label="Website URL"
+          labelPlacement="outside"
+          placeholder="Enter URL"
+        />
+
         <Controller
           control={control}
           name="country"

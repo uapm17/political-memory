@@ -40,12 +40,12 @@ export const fetchInstitutionsList = () => {
 };
 
 export const createInstitution = ({
-  institution,
+  institutionData,
 }: {
-  institution: Institution;
+  institutionData: InstitutionData;
 }) => {
   const institutionsRef = collection(db, "institutions");
-  return addDoc(institutionsRef, institution).then((doc) => doc.id);
+  return addDoc(institutionsRef, institutionData).then((doc) => doc.id);
 };
 
 export const editInstitution = ({

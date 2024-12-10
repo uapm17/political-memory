@@ -11,13 +11,17 @@ import InstitutionForm from "./InstitutionForm";
 import { createEmptyInstitution } from "@/src/entities/institutions/institutions.utils";
 import { InstitutionData } from "@/src/entities/institutions/Institution";
 import { PlusIcon } from "@/src/icons/PlusIcon";
+import { useDispatch } from "react-redux";
+import { createInstitution } from "@/src/gateways/institutions.gateway";
+import { createInstitutionAction } from "@/src/entities/institutions/institutions.actions";
 
 export default function CreateInstitutionBtn() {
+  const dispatch = useDispatch();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const initialValues = createEmptyInstitution();
   const handleSubmit = useCallback((formValues: InstitutionData) => {
-    console.log(formValues);
+    dispatch(createInstitutionAction(formValues));
   }, []);
 
   return (
