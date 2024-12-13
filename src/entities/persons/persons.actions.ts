@@ -1,5 +1,5 @@
 import personActionTypes from "./persons.actionTypes";
-import { Person } from "./Person";
+import { Person, PersonData } from "./Person";
 
 export const requestPerson = ({ personId }: { personId: string }) => ({
   type: personActionTypes.REQUEST_PERSON_DATA,
@@ -20,9 +20,9 @@ export const setPerson = (person: Person | null) => ({
   person,
 });
 
-export const createPersonAction = (person: Person) => ({
+export const createPersonAction = (personData: PersonData) => ({
   type: personActionTypes.CREATE_PERSON,
-  person,
+  personData,
 });
 
 export const clearPerson = () => ({
@@ -31,12 +31,12 @@ export const clearPerson = () => ({
 
 export const updatePerson = ({
   personId,
-  person,
+  personData,
 }: {
   personId: string;
-  person: Person;
+  personData: PersonData;
 }) => ({
   type: personActionTypes.UPDATE_PERSON_DATA,
   personId,
-  person,
+  personData,
 });

@@ -14,7 +14,6 @@ import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { User } from "@nextui-org/user";
 import { Pagination } from "@nextui-org/pagination";
-import { ChipProps } from "@nextui-org/chip";
 import {
   DropdownTrigger,
   Dropdown,
@@ -26,13 +25,12 @@ import { VerticalDotsIcon } from "@/src/icons/VerticalDotsIcon";
 import { SearchIcon } from "@/src/icons/SearchIcon";
 import { ChevronDownIcon } from "@/src/icons/ChevronDownIcon";
 import { capitalize } from "@/src/utils/string.utils";
-import { PlusIcon } from "@/src/icons/PlusIcon";
 import { Person } from "@/src/entities/persons/Person";
 import { differenceInYears } from "date-fns";
 import { partiesMap } from "@/src/entities/parties/parties";
 import { useInstitutions } from "@/src/entities/institutions/institutions.hooks";
 import { Institution } from "@/src/entities/institutions/Institution";
-import PersonFormBtn from "./PersonFormBtn";
+import PersonFormBtn from "./CreatePersonBtn";
 
 // const statusColorMap: Record<string, ChipProps["color"]> = {
 //   active: "success",
@@ -296,7 +294,6 @@ export default function PersonsTable({
             onClear={() => onClear()}
             onValueChange={onSearchChange}
           />
-          <PersonFormBtn />
           <div className="flex gap-3">
             {/* <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
@@ -346,9 +343,7 @@ export default function PersonsTable({
                 ))}
               </DropdownMenu>
             </Dropdown>
-            {/* <Button color="primary" endContent={<PlusIcon />}>
-              Add New
-            </Button> */}
+            <PersonFormBtn />
           </div>
         </div>
         <div className="flex justify-between items-center">
@@ -448,7 +443,7 @@ export default function PersonsTable({
       </TableHeader>
       <TableBody emptyContent={"No users found"} items={sortedItems}>
         {(item) => (
-          <TableRow key={item.id}>
+          <TableRow key={item.id} href={`/persons/${item.id}`}>
             {(columnKey) => (
               <TableCell>{renderCell(item, columnKey)}</TableCell>
             )}

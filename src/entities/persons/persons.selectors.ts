@@ -11,3 +11,11 @@ export const personsListSelector = createSelector(
     return Object.values(personsHash) as Person[];
   }
 );
+
+export const personSelector = createSelector(
+  personsHashSelector,
+  (_: RootState, { personId }: { personId: string }) => personId,
+  (personsHash, personId) => {
+    return personsHash[personId] as Person | undefined;
+  }
+);

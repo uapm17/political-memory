@@ -4,10 +4,14 @@ import { Image } from "@nextui-org/image";
 import { format } from "date-fns";
 
 interface PersonCardProps {
-  person: Person;
+  person?: Person;
 }
 
 export default function PersonCard({ person }: PersonCardProps) {
+  if (!person) {
+    return null;
+  }
+
   const { firstName, lastName, birthDate, photoUrl, jobHistory } = person;
   const currentJob = jobHistory.find((record) => !record.end)?.position || "-";
 

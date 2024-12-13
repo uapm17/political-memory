@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/src/hooks";
-import { requestPersonsList } from "./persons.actions";
-import { personsListSelector } from "./persons.selectors";
+import { requestPerson, requestPersonsList, updatePerson } from "./persons.actions";
+import { personSelector, personsListSelector } from "./persons.selectors";
+import { RootState } from "@/src/store";
+import { PersonData } from "./Person";
 
 export const usePersons = () => {
   const dispatch = useAppDispatch();
@@ -14,4 +16,26 @@ export const usePersons = () => {
   }, []);
 
   return { persons };
+};
+
+export const usePerson = (personId: string) => {
+  const dispatch = useAppDispatch();
+  const person = useAppSelector((state: RootState) =>
+    personSelector(state, { personId })
+  );
+
+  useEffect(() => {
+    if (!person) {
+      dispatch(requestPerson({ personId }));
+    }
+  }, [person, personId]);
+
+  const handleChange = useCallback(
+    (personData: PersonData, personId: string) => {
+      dispatch(updatePerson({ personData, personId }));
+    },
+    []
+  );
+
+  return { person, onUpdate: handleChange };
 };

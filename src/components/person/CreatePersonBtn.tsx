@@ -1,26 +1,26 @@
-import { useCallback } from "react";
 import { Button, useDisclosure } from "@nextui-org/react";
 import {
   Drawer,
-  DrawerBody,
   DrawerContent,
-  DrawerFooter,
   DrawerHeader,
+  DrawerBody,
+  DrawerFooter,
 } from "@nextui-org/drawer";
-import InstitutionForm from "./InstitutionForm";
-import { createEmptyInstitution } from "@/src/entities/institutions/institutions.utils";
-import { InstitutionData } from "@/src/entities/institutions/Institution";
+import PersonForm from "./PersonForm";
+import { createEmptyPerson } from "@/src/entities/persons/persons.utils";
+import { useCallback } from "react";
+import { PersonData } from "@/src/entities/persons/Person";
 import { PlusIcon } from "@/src/icons/PlusIcon";
 import { useDispatch } from "react-redux";
-import { createInstitutionAction } from "@/src/entities/institutions/institutions.actions";
+import { createPersonAction } from "@/src/entities/persons/persons.actions";
 
-export default function CreateInstitutionBtn() {
+export default function CreatePersonBtn() {
   const dispatch = useDispatch();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const initialValues = createEmptyInstitution();
-  const handleSubmit = useCallback((formValues: InstitutionData) => {
-    dispatch(createInstitutionAction(formValues));
+  const initialValues = createEmptyPerson();
+  const handleSubmit = useCallback((formValues: PersonData) => {
+    dispatch(createPersonAction(formValues));
   }, []);
 
   return (
@@ -31,17 +31,17 @@ export default function CreateInstitutionBtn() {
         onPress={onOpen}
         endContent={<PlusIcon />}
       >
-        Add
+        Create person
       </Button>
       <Drawer isOpen={isOpen} onOpenChange={onOpenChange}>
         <DrawerContent>
           {(onClose) => (
             <>
               <DrawerHeader className="flex flex-col gap-1">
-                Create institution
+                Create person
               </DrawerHeader>
               <DrawerBody>
-                <InstitutionForm
+                <PersonForm
                   initialValues={initialValues}
                   onSubmit={handleSubmit}
                 />

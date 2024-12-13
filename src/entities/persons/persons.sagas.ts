@@ -14,10 +14,10 @@ import {
 } from "@/src/gateways/persons.gateway";
 
 export function* createPersonSaga({
-  person,
+  personData,
 }: ReturnType<typeof createPersonAction>) {
   try {
-    yield call(createPerson, { person });
+    yield call(createPerson, { personData });
   } catch (e: any) {
     throw new Error(e);
   }

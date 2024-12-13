@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import { handleCollectionSnapshot, handleDocumentSnapshot } from "./utils";
 import { db, functions } from "../common/firebase";
-import { Person } from "../entities/persons/Person";
+import { Person, PersonData } from "../entities/persons/Person";
 
 export const getPersonDocPath = (personId: string) => {
   return `persons/${personId}`;
@@ -32,9 +32,9 @@ export const fetchPersonsList = () => {
   return getDocs(personsRef).then(handleCollectionSnapshot);
 };
 
-export const createPerson = ({ person }: { person: Person }) => {
+export const createPerson = ({ personData }: { personData: PersonData }) => {
   const personsRef = collection(db, "persons");
-  return addDoc(personsRef, person).then((doc) => doc.id);
+  return addDoc(personsRef, personData).then((doc) => doc.id);
 };
 
 export const editPerson = ({
