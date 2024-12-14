@@ -118,7 +118,7 @@ export default function PersonsTable({
     new Set(INITIAL_VISIBLE_COLUMNS)
   );
   const [statusFilter, setStatusFilter] = React.useState<Selection>("all");
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
     column: "age",
     direction: "ascending",
@@ -356,9 +356,9 @@ export default function PersonsTable({
               className="bg-transparent outline-none text-default-400 text-small"
               onChange={onRowsPerPageChange}
             >
-              <option value="5">5</option>
               <option value="10">10</option>
-              <option value="15">15</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
             </select>
           </label>
         </div>

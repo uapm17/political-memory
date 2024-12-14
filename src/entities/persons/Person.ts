@@ -17,7 +17,7 @@ type EducationRecord = {
   actions: Action[];
 };
 
-type JobDetails = {
+export type JobDetails = {
   type: "uaDeputy";
   convocationNumber: number;
   choosenBy: string;
@@ -32,7 +32,7 @@ type JobDetails = {
   volonteerAssistants: string[];
 };
 
-type Job = {
+export type Job = {
   start: Date | null;
   end: Date | null;
   position: string;
@@ -128,4 +128,4 @@ export type PersonData = {
 
 export type Person = PersonData & {
   id: string;
-}
+};

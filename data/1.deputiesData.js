@@ -1,5 +1,6 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
+const crypto = require('crypto');
 const admin = require("firebase-admin");
 const { parse } = require("date-fns");
 const { uk } = require("date-fns/locale");
@@ -252,6 +253,7 @@ const saveOrUpdatePersonData = async ({
   const scrappedPerson = await scrapPerson(personUrl);
   const { convocationInfo, general } = scrappedPerson;
   const newJob = {
+    id: crypto.randomUUID(),
     start: convocationInfo.jobStart,
     end: convocationEnd,
     position: "Депутат Верховної Ради України",
@@ -259,6 +261,7 @@ const saveOrUpdatePersonData = async ({
     description: null,
     actions: [],
     details: {
+      type: 'uaDeputy',
       convocationNumber,
       ...convocationInfo,
     },
