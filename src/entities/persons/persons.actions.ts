@@ -29,7 +29,7 @@ export const clearPerson = () => ({
   type: personActionTypes.CLEAR_PERSON_DATA,
 });
 
-export const updatePerson = ({
+export const updatePersonAction = ({
   personId,
   personData,
 }: {

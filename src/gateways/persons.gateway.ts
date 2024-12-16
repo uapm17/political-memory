@@ -39,12 +39,12 @@ export const createPerson = ({ personData }: { personData: PersonData }) => {
 
 export const editPerson = ({
   personId,
-  person,
+  personData,
 }: {
   personId: string;
-  person: Person;
+  personData: PersonData;
 }) => {
   const personRef = doc(db, `persons/${personId}`);
 
-  return updateDoc(personRef, person);
+  return updateDoc(personRef, personData);
 };

@@ -1,6 +1,10 @@
 import { useCallback, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/src/hooks";
-import { requestPerson, requestPersonsList, updatePerson } from "./persons.actions";
+import {
+  requestPerson,
+  requestPersonsList,
+  updatePersonAction,
+} from "./persons.actions";
 import { personSelector, personsListSelector } from "./persons.selectors";
 import { RootState } from "@/src/store";
 import { PersonData } from "./Person";
@@ -32,7 +36,7 @@ export const usePerson = (personId: string) => {
 
   const handleChange = useCallback(
     (personData: PersonData, personId: string) => {
-      dispatch(updatePerson({ personData, personId }));
+      dispatch(updatePersonAction({ personData, personId }));
     },
     []
   );

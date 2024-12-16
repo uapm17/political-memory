@@ -17,7 +17,10 @@ export const makeStore = () => {
       parties,
       institutions,
     },
-    middleware: (gDM) => gDM().concat(sagaMiddleware),
+    middleware: (gDM) =>
+      gDM({
+        serializableCheck: false,
+      }).concat(sagaMiddleware),
   });
 
   sagaMiddleware.run(personSaga);

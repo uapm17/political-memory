@@ -17,5 +17,6 @@ export const createEmptyPerson = (): PersonData => {
     investigations: [],
     family: [],
     criminalRecords: [],
+    videos: [],
   };
 };

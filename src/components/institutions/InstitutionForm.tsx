@@ -61,7 +61,6 @@ export default function InstitutionForm({
         />
 
         <Input
-          isRequired
           {...register("description")}
           errorMessage={({ validationDetails }) => {
             if (validationDetails.valueMissing) {
@@ -74,7 +73,6 @@ export default function InstitutionForm({
         />
 
         <Input
-          isRequired
           {...register("websiteUrl")}
           errorMessage={({ validationDetails }) => {
             if (validationDetails.valueMissing) {
@@ -111,7 +109,6 @@ export default function InstitutionForm({
         />
 
         <Input
-          isRequired
           {...register("city")}
           errorMessage={({ validationDetails }) => {
             if (validationDetails.valueMissing) {
@@ -124,7 +121,6 @@ export default function InstitutionForm({
         />
 
         <Input
-          isRequired
           {...register("logoUrl")}
           errorMessage={({ validationDetails }) => {
             if (validationDetails.valueMissing) {

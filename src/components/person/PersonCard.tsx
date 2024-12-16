@@ -5,9 +5,10 @@ import { format } from "date-fns";
 
 interface PersonCardProps {
   person?: Person;
+  className?: string;
 }
 
-export default function PersonCard({ person }: PersonCardProps) {
+export default function PersonCard({ person, className }: PersonCardProps) {
   if (!person) {
     return null;
   }
@@ -16,7 +17,7 @@ export default function PersonCard({ person }: PersonCardProps) {
   const currentJob = jobHistory.find((record) => !record.end)?.position || "-";
 
   return (
-    <Card className="py-4">
+    <Card className={["py-4", className].join(" ")}>
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
         <small className="text-default-500">
           {format(birthDate, "dd.MM.yyyy")}

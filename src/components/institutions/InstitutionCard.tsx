@@ -37,8 +37,9 @@ export default function InstitutionCard({ institution }: InstitutionCardProps) {
       <CardBody className="overflow-visible py-2">
         <Image
           alt={name}
-          className="object-cover rounded-xl w-full"
+          className="object-cover rounded-xl"
           src={logoUrl || undefined}
+          width="100%"
         />
         <p className="text-sm mt-4">{description}</p>
         {websiteUrl && (

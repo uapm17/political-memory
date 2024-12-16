@@ -108,6 +108,16 @@ type FamilyMember = {
   description: string;
 };
 
+export type VideoRecordData = {
+  video: ExternalLink;
+  tags: string[];
+  date: Date;
+};
+
+export type VideoRecord = VideoRecordData & {
+  id: string;
+};
+
 export type PersonData = {
   firstName: string;
   lastName: string;
@@ -124,6 +134,7 @@ export type PersonData = {
   investigations: Investigation[];
   family: FamilyMember[];
   criminalRecords: CriminalRecord[];
+  videos: VideoRecord[];
 };
 
 export type Person = PersonData & {
